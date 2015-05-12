@@ -1,0 +1,37 @@
+body {
+	background-color: darkgreen;
+}
+
+h1{
+	color: white;
+
+}
+
+.title{
+	padding-bottom: 150px;
+}
+
+.box {
+    padding: 0 5px 0 5px;
+}
+.box .inner {
+    background-color: #fff;
+    height: 100px;
+}
+
+.badge-important {
+	height:20px;
+	width: 30px;
+}
+
+#t { 
+	height: 50px;
+	width: 80px;
+	padding-top: 20px;
+}
+#btn{
+height: 50px;
+	width: 80px;
+	
+
+}
