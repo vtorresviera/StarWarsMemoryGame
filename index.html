@@ -9,40 +9,38 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
+<body onload="newBoard()">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <canvas id="myCanvas" width="125" height="200">
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-            <script src="lib/swapi.js"></script>
-            <!--My Own js file-->
-            <script type="text/javascript" src="scripts/scripts.js"></script>
-            <script>
-            swapiModule.getPeople(1, function(data) {
-                console.log("Result of getPeople (page 1)", data);
-                console.log("1st name ", data.results[0]["name"]);
-                console.log("2nd name ", data.results[1]["name"]);
-                console.log("3rd name ", data.results[2]["name"]);
-                console.log("4th name ", data.results[3]["name"]);
-                console.log("5th name ", data.results[4]["name"]);
-                console.log("6th name ", data.results[5]["name"]);
-                console.log("7th name ", data.results[6]["name"]);
-                console.log("8th name ", data.results[7]["name"]);
-                console.log("9th name ", data.results[8]["name"]);
-                console.log("10th name ", data.results[9]["name"]);
-            });
-            swapiModule.getPeople(2, function(data) {
-                console.log("Result of getPeople (page 2)", data);
-                console.log("1st name ", data.results[0]["name"]);
-                console.log("2nd name ", data.results[1]["name"]);
-                console.log("3rd name ", data.results[2]["name"]);
-                console.log("4th name ", data.results[3]["name"]);
-                console.log("5th name ", data.results[4]["name"]);
+        <div id="memory_board"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="lib/swapi.js"></script>
+    <!--My Own js file-->
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script>
+    swapiModule.getPeople(1, function(data) {
+        console.log("Result of getPeople (page 1)", data);
+        console.log("1st name ", data.results[0]["name"]);
+        console.log("2nd name ", data.results[1]["name"]);
+        console.log("3rd name ", data.results[2]["name"]);
+        console.log("4th name ", data.results[3]["name"]);
+        console.log("5th name ", data.results[4]["name"]);
+        console.log("6th name ", data.results[5]["name"]);
+        console.log("7th name ", data.results[6]["name"]);
+        console.log("8th name ", data.results[7]["name"]);
+        console.log("9th name ", data.results[8]["name"]);
+        console.log("10th name ", data.results[9]["name"]);
+    });
+    swapiModule.getPeople(2, function(data) {
+        console.log("Result of getPeople (page 2)", data);
+        console.log("1st name ", data.results[0]["name"]);
+        console.log("2nd name ", data.results[1]["name"]);
+        console.log("3rd name ", data.results[2]["name"]);
+        console.log("4th name ", data.results[3]["name"]);
+        console.log("5th name ", data.results[4]["name"]);
 
-            });
-            </script>
+    });
+    </script>
 </body>
 
 </html>
