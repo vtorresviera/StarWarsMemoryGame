@@ -1,0 +1,22 @@
+#memory_board{
+	background-color: gray;
+	border-color: #999 1px solid;
+	/*width: 1250px;*/
+	width:1200px;
+	height: 475px;
+	padding: 24px;
+	margin: 0px auto;
+}
+div#memory_board > div {
+	background: url("../img/backcard.png");
+	border: black 1px solid;
+	width:93.75px;
+	height: 125px;
+	float: left;
+	margin: 10px;
+	padding: 20px;
+	cursor:pointer;
+	font-family: "Lato";
+	font-size: 12px;
+	text-align: center;
+}
