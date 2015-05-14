@@ -13,6 +13,26 @@
 </head>
 
 <body onload="newBoard()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../img/logo.png" />
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="score"></div>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" onclick="restart()">Start the Game!</button>
+            </div>
+        <div class="col-md-4">
+            <div id="numIncorrectMatches"></div>
+        </div>
+    </div>
+    </div>
     <div class="container-fluid">
         <div id="memory_board"></div>
     </div>
@@ -20,7 +40,7 @@
     <script src="lib/swapi.js"></script>
     <!--My Own js file-->
     <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script>
+    <!--<script>
     swapiModule.getPeople(1, function(data) {
         console.log("Result of getPeople (page 1)", data);
         console.log("1st name ", data.results[0]["name"]);
@@ -33,6 +53,8 @@
         console.log("8th name ", data.results[7]["name"]);
         console.log("9th name ", data.results[8]["name"]);
         console.log("10th name ", data.results[9]["name"]);
+        
+
     });
     swapiModule.getPeople(2, function(data) {
         console.log("Result of getPeople (page 2)", data);
@@ -43,7 +65,7 @@
         console.log("5th name ", data.results[4]["name"]);
 
     });
-    </script>
+    </script>-->
 </body>
 
 </html>
