@@ -8,30 +8,59 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Orbitron:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<!--<body onload="newBoard()">-->
 
-<body onload="newBoard()">
+<body onload="intervalhandle=window.setInterval(function() {checktimedispatcher() },10);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="../img/logo.png" />
+                <img id="log" src="../img/logo.png" />
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div id="score"></div>
+            <div class="col-md-12">
+                <p></p>
             </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-primary" onclick="restart()">Start the Game!</button>
-            </div>
-        <div class="col-md-4">
-            <div id="numIncorrectMatches"></div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <div id="score"></div>
+                <p>Points</p>
+            </div>
+            <div class="col-md-1">
+                <div id="numIncorrectMatches"></div>
+                <p>Tries</p>
+            </div>
+            <div class="col-md-2">
+                <button align="center" type="button" class="btn btn-success btn-lg" onclick="restart()">Start the Game!</button>
+            </div>
+            <div class="col-md-2">
+                <p id="timer" align="left">TIME: <span id="timerelement">starting</span>
+                    <!--<br>HOURS: <span id="hourelement">0</span>
+                    <br>MINUTES: <span id="minuteelement">0</span>-->
+                    <br>
+                    <br>GAME TIME: <span id="secondelement">0</span>
+                    <br><span id="tenthelement">starting</span>
+                    <br><span id="hundredthelement">starting</span>
+                </p>
+            </div>
+            <div class="col-md-3">
+            <img align="right" src="../img/chewbaccaSmall.png">
+                <!--<p></p>-->
+            </div>
+            <div class="col-md-3">
+                <!--<img src="../img/chewbaccaSmall.png">-->
+                <p id="msg">Time yourself to see how fast you can find all of the matching pairs.</p>
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         <div id="memory_board"></div>
@@ -40,32 +69,8 @@
     <script src="lib/swapi.js"></script>
     <!--My Own js file-->
     <script type="text/javascript" src="scripts/scripts.js"></script>
-    <!--<script>
-    swapiModule.getPeople(1, function(data) {
-        console.log("Result of getPeople (page 1)", data);
-        console.log("1st name ", data.results[0]["name"]);
-        console.log("2nd name ", data.results[1]["name"]);
-        console.log("3rd name ", data.results[2]["name"]);
-        console.log("4th name ", data.results[3]["name"]);
-        console.log("5th name ", data.results[4]["name"]);
-        console.log("6th name ", data.results[5]["name"]);
-        console.log("7th name ", data.results[6]["name"]);
-        console.log("8th name ", data.results[7]["name"]);
-        console.log("9th name ", data.results[8]["name"]);
-        console.log("10th name ", data.results[9]["name"]);
-        
-
-    });
-    swapiModule.getPeople(2, function(data) {
-        console.log("Result of getPeople (page 2)", data);
-        console.log("1st name ", data.results[0]["name"]);
-        console.log("2nd name ", data.results[1]["name"]);
-        console.log("3rd name ", data.results[2]["name"]);
-        console.log("4th name ", data.results[3]["name"]);
-        console.log("5th name ", data.results[4]["name"]);
-
-    });
-    </script>-->
+    <!--timer js file-->
+    <script type="text/javascript" src="scripts/timer.js"></script>
 </body>
 
 </html>

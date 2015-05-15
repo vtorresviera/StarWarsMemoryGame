@@ -8,7 +8,10 @@ var memory_values = [];
 var memory_tile_ids = [];
 var numMatches = 2;
 var score = 0;
+document.getElementById('score').innerHTML = score;
 var numIncorrectMatches = 0;
+document.getElementById("numIncorrectMatches").innerHTML = numIncorrectMatches;
+
 
 //Set up Ajax Call
 
@@ -113,6 +116,7 @@ function memoryFlipTile(tile, val) {
                     numIncorrectMatches = 0;
                     document.getElementById("numIncorrectMatches").innerHTML = numIncorrectMatches;
                     newBoard();
+                    restart();
                 }
             } else {
                 function flip2Back() {
@@ -143,4 +147,12 @@ function restart() {
     numIncorrectMatches = 0;
     document.getElementById("numIncorrectMatches").innerHTML = numIncorrectMatches;
     newBoard();
+    hourcounter = 0;
+    minutecounter = 0;
+    secondcounter = 0;
+    tenthsecondcounter = 0;
+    hundredthsecondcounter = 0;
+    //clearing timer
+    clearInterval(intervalhandle);
+    intervalhandle=window.setInterval(function() {checktimedispatcher() },10);
 }

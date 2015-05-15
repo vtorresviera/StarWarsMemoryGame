@@ -1,38 +1,71 @@
-body{
-	background:url("../img/starynight.jpg");
+body {
+    background: url("../img/starynight.jpg");
 }
-#memory_board{
-	/*background-color: gray;*/
-	background-image: url("../img/poker-table-felt.jpg");
-	border-color: #999 1px solid;
-	/*width: 1250px;*/
-	width:1200px;
-	height: 475px;
-	padding: 24px;
-	margin: 0px auto;
+.btn.btn-success.btn-lg{
+	margin-top: 30px;
+	font-family: "Orbitron";
 }
-div#memory_board > div {
-	background: url("../img/backcard.png");
-	border: black 1px solid;
-	width:93.75px;
-	height: 125px;
-	float: left;
-	margin: 10px;
-	padding: 20px;
-	cursor:pointer;
+#memory_board {
+    background-image: url("../img/poker-table-felt.jpg");
+    border-color: #999 1px solid;
+    width: 1200px;
+    height: 475px;
+    padding: 24px;
+    margin: 0px auto;
+}
+#timer {
+	width:450px;
 	font-family: "Lato";
-	font-size: 12px;
+	font-size: 16px;
 	text-align: center;
 }
-#score {
-	background: white;
-	width:50px;
-	height: 50px;
-	/*font:yellow,30px;*/
+
+div#memory_board > div {
+    background: url("../img/backcard.png");
+    border: black 1px solid;
+    width: 93.75px;
+    height: 125px;
+    float: left;
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+    font-family: "Lato";
+    font-size: 12px;
+    text-align: center;
 }
-#numIncorrectMatches{
-	background: white;
-	width:50px;
-	height: 50px;
-	/*font:yellow,30px;*/
+p {
+	color:rgba(255,204,0,1);
+	text-align: left;
+	font-size: 24px;
+	font-family: "Orbitron";
+}
+#score {
+    background: rgba(255, 204, 0, 1);
+    width: 70px;
+    height: 70px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 52px;
+}
+
+#numIncorrectMatches {
+    background: rgba(255, 204, 0, 1);
+    width: 70px;
+    height: 70px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 52px;
+}
+#tenthelement{
+	visibility: hidden;
+}
+#hundredthelement{
+	visibility: hidden;
+}
+#secondelement{
+	font-size:52px;
+}
+p#msg {
+	margin-top:30px;
+	font-size: 20px;
 }
