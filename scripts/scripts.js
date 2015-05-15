@@ -1,11 +1,9 @@
-// var memory_array2 = ["Luke Skywalker", "Luke Skywalker", "C-3PO", "C-3PO", "R2-D2", "R2-D2", "Darth Vader", "Darth Vader", "Leia Organa", "Leia Organa", "Owen Lars", "Owen Lars", "Beru Whitesun lars", "Beru Whitesun lars", "R5-D4", "R5-D4", "Biggs Darklighter", "Biggs Darklighter", "Obi-Wan Kenobi", "Obi-Wan Kenobi", "Anakin Skywalker", "Anakin Skywalker", "Wilhuff Tarkin", "Wilhuff Tarkin", "Chewbacca", "Chewbacca", "Han Solo", "Han Solo", "Greedo", "Greedo"];
-// console.log("hard coded table");
-// console.table(memory_array2);
-// console.log(memory_array2.length);
+//Global Variables
 var memory_array = [];
 var fullDeck = [];
 var memory_values = [];
 var memory_tile_ids = [];
+// variable that tells the inside loop reading 15 elements of array received to push value twice to fullDeck array (30).
 var numMatches = 2;
 var score = 0;
 document.getElementById('score').innerHTML = score;
@@ -13,9 +11,11 @@ var numIncorrectMatches = 0;
 document.getElementById("numIncorrectMatches").innerHTML = numIncorrectMatches;
 
 
-//Set up Ajax Call
+//Ajax calls to swapi API Ajax
+//Two Ajax calls are made in order to get 2 pages of the people objects.
+//memory_array will hold the object array received from API.
+//count variable is counting the pages received.
 
-// We need 15 total items from the Star Wars API (since we have 30 cards, and need two per matched set). Since the API is paginated at 10, it means we'll need to make multiple calls. To make this easy, we'll simply put this in a loop that loops twice, and makes a call in each loop. Since the loop keeps track of what number of loop it's on (called the "index"), we can use that number to pass in as our page number to the API. The first time the loop goes around, it'll ask the API for page 1, the second time, for page 2. 
 
 var count = 0;
 var memory_array = [];
@@ -26,6 +26,7 @@ for (i = 1; i < 3; i++) {
         memory_array = memory_array.concat(JSON.parse(this.responseText).results);
         count++;
         if (count == 2) {
+            //when we receive the 2 pages we go to create the 30 cards deck
             buildDeck(memory_array);
         }
     }
@@ -33,25 +34,22 @@ for (i = 1; i < 3; i++) {
     req.send();
 }
 
-// The buildDeck function is used to create the array of cards we'll use to show to our player. There are two components to this. Our goal is to have two of each item in the deck, so we need to use a nested loop in order to easily do this. We'll loop through the first 15 items in the array that was given to us by the API, and for each of those items, we'll push it into the array twice (using the nested loop). Once this is done, we'll pass this newly created array (now with 30 total items - 2 each of the 15) to our buildCards function, which will actually put the cards on the page in HTML. It's also important to see that we need to shuffle the cards, since they'd otherwise all be next to each other (if you remember, we simply pushed two at a time into the array, so they're all in pairs right now). We'll use the knuthShuffle library, which will simply take our array and shuffle it up. That newly shuffled array is what's passed to the buildCards function.
-
+// Creating the 30 cards deck
 function buildDeck(memory_array) {
-    // var fullDeck = [];
+    // loop runs 15 times because we 15 characters
     for (i = 0; i < 15; i++) {
+        // write 2 times the value read in the full deck array
         for (x = 0; x < numMatches; x++) {
             fullDeck.push(memory_array[i].name);
         }
     }
-    console.log(fullDeck + " new Array");
     newBoard();
 }
 
 
-//shuffle function
+//shuffle  Full Deck Array function
 Array.prototype.memory_tile_shuffle = function() {
-    console.log("i entered shuffle");
-    console.table(this);
-    console.log("length: ", this.length);
+    
     var i = this.length,
         j, temp;
     while (--i > 0) {
@@ -66,28 +64,22 @@ Array.prototype.memory_tile_shuffle = function() {
 
 
 function newBoard() {
-    // buildArray();
-    console.log("im in newboard");
     tiles_flipped = 0;
     var output = "";
-    console.log("im going to call memory_array tile shuffle");
-    // memory_array.memory_tile_shuffle();
+    //sending Full Deck array to shuffle
     fullDeck.memory_tile_shuffle();
-    console.log("came back from shuffle");
-    console.table(fullDeck);
-    console.log("memory_array length; ", memory_array.length);
-    // for (i = 0; i < memory_array.length; i++) {
+
+    //loop for creating the cards on the board dynamically <div for the cards
     for (i = 0; i < fullDeck.length; i++) {
-        // output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + memory_array[i] + '\')"></div>';
         output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + fullDeck[i] + '\')"></div>';
 
     }
 
-    console.log("output content: " + output);
     document.getElementById("memory_board").innerHTML = output;
 }
 
 function memoryFlipTile(tile, val) {
+    //uses memory_values array.  It is a 2 element array that contains both flipped cards id and value
     if (tile.innerHTML == "" && memory_values.length < 2) {
         tile.style.background = '#FFF';
         tile.innerHTML = val;
@@ -120,6 +112,7 @@ function memoryFlipTile(tile, val) {
                 }
             } else {
                 function flip2Back() {
+                    //uses memory_tiles_ids array to put them back in the same spot
                     // Flip the 2 tiles back over
                     var tile_1 = document.getElementById(memory_tile_ids[0]);
                     var tile_2 = document.getElementById(memory_tile_ids[1]);
